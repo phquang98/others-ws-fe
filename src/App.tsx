@@ -5,7 +5,7 @@ import jsonServerProv from "ra-data-json-server";
 import UserList from "./components/User/User";
 import { firebaseAuthProvider } from "./config/firebase";
 import customURLs from "./common/Routes";
-import CustomLayout from "./common/CustomLayout";
+import CustomLayout from "./components/CustomLayout/CustomLayout";
 
 const App: FC = () => {
   const fakeDataProvider = jsonServerProv("https://jsonplaceholder.typicode.com");

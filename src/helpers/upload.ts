@@ -1,7 +1,7 @@
 import xlsx, { WorkBook, Sheet2JSONOpts } from "xlsx";
 import axios from "axios";
 
-import { Participant } from "../types";
+import { Participant } from "../common/types";
 
 const sheet2JsonOpts: Sheet2JSONOpts = {
   raw: false // use formatted str, aka w prop,

@@ -2,7 +2,7 @@ import React, { FC, Fragment } from "react";
 import Button from "@material-ui/core/Button";
 import xlsx from "xlsx";
 
-import { extractDataFromWorkBook, uploadDataToServer } from "../helpers/upload";
+import { extractDataFromWorkBook, uploadDataToServer } from "../../helpers/upload";
 
 let workBook: xlsx.WorkBook; // backend take this
 const sheetNameHere = "Fake Data 1";
