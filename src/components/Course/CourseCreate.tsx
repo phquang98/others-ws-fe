@@ -1,11 +1,7 @@
 import React, { FC } from "react";
-import { Create, SimpleForm, TextInput, DateInput, Validator } from "react-admin";
+import { Create, SimpleForm, TextInput, DateInput } from "react-admin";
 
 const CourseCreate: FC = (props) => {
-  const validator: Validator = (value) => {
-    return value ? undefined : "Required";
-  };
-
   return (
     <Create title="Creating a new Course" {...props}>
       <SimpleForm>

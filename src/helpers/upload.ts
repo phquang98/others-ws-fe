@@ -1,5 +1,5 @@
 import xlsx, { WorkBook, Sheet2JSONOpts } from "xlsx";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import dotenv from "dotenv";
 
 import { Participant } from "../common/types";

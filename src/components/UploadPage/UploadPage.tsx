@@ -11,11 +11,9 @@ const sheetNameHere = "Fake Data 1";
 
 dotenv.config();
 const uploadURL = process.env.REACT_APP_URL_UPLOAD_PAGE;
-const cacDmm = process.env.REACT_APP_API_KEY;
-const dmm = process.env.REACT_APP_NOT_SECRET_CODE;
 
 const UploadPage: FC = () => {
-  const [isAck, useAck] = useState<boolean>(false);
+  // const [isAck, useAck] = useState<boolean>(false);
   const [xlsxJSONData, useXlsxJSONData] = useState<Participant[]>([]);
 
   /** Upload + "extract" data from .xlsx file
@@ -45,7 +43,8 @@ const UploadPage: FC = () => {
     }
   };
 
-  const submitDataToServerHdlr = (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  // evt: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  const submitDataToServerHdlr = () => {
     console.log("shit", uploadURL);
     console.log("damnson", xlsxJSONData);
     uploadDataToServer(xlsxJSONData);
