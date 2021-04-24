@@ -11,15 +11,18 @@ import CustomLayout from "./components/CustomLayout/CustomLayout";
 import CourseList from "./components/Course/CourseList";
 import CourseCreate from "./components/Course/CourseCreate";
 import CourseEdit from "./components/Course/CourseEdit";
+import PointList from "./components/Point/PointList";
+import PointEdit from "./components/Point/PointEdit";
+import PointCreate from "./components/Point/PointCreate";
 
 const App: FC = () => {
-  const dataProv = jsonServerProv("http://localhost:5000");
-  // const lozmenhamay = jsonServerProv("http://localhost:7000");
+  const dataProv = jsonServerProv("http://localhost:5000"); //
 
   return (
     <Admin layout={CustomLayout} customRoutes={customURLs} authProvider={firebaseAuthProvider} dataProvider={dataProv}>
       <Resource name="participant" list={PartList} create={PartCreate} edit={PartEdit} />
       <Resource name="course" list={CourseList} create={CourseCreate} edit={CourseEdit} />
+      <Resource name="course_participant" list={PointList} create={PointCreate} edit={PointEdit} />
       {}
     </Admin>
   );

@@ -1,5 +1,6 @@
 import xlsx, { WorkBook, Sheet2JSONOpts } from "xlsx";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import dotenv from "dotenv";
 
 import { Participant } from "../common/types";
 
@@ -8,7 +9,8 @@ const sheet2JsonOpts: Sheet2JSONOpts = {
   // header: 1
 };
 
-const serverURL = "http://localhost:5000/participant/upload";
+dotenv.config();
+const uploadURL = process.env.REACT_APP_URL_UPLOAD_PAGE;
 
 const extractDataFromWorkBook = (workBook: WorkBook, sheetName: string): Participant[] => {
   const workSheet = workBook.Sheets[sheetName];
@@ -17,7 +19,21 @@ const extractDataFromWorkBook = (workBook: WorkBook, sheetName: string): Partici
 };
 
 const uploadDataToServer = (dataFromWorkBook: any): void => {
-  axios.post(serverURL, dataFromWorkBook);
+  console.log(uploadURL);
+  if (uploadURL) {
+    // generic here is the data from the server, aka what inside the res.status().json({...inHere})
+    // const resFromServer =
+    axios.post<{ msg: string }>(uploadURL, dataFromWorkBook);
+
+    // axios
+    //   .post<{ msg: string }>(uploadURL, dataFromWorkBook)
+    //   .then()
+    //   .catch((serverErr) => {
+
+    //   });
+  } else {
+    console.log("Can not read upload URL correctly.");
+  }
 };
 
 export { extractDataFromWorkBook, uploadDataToServer };

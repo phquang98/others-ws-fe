@@ -14,3 +14,4 @@
 - [ ] may use ra-data-simple-rest to bootstrap Data Providers instead of writing manually
 
 - RA error response must return `{data: []}` is wrong, server must return like this `[...bunchOfObjHere]`
+- `basePath` prop in Delete Btn to go to what URL after DEL ACTION is completed

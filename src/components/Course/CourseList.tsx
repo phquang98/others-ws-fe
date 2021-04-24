@@ -14,6 +14,7 @@ const CourseList: FC = (props) => (
       <DateField source="date_ended" />
       <EditButton />
       <DeleteButton basePath="/course" />
+      <button>Please Work</button>
     </Datagrid>
   </List> //
 );

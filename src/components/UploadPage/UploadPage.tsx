@@ -1,13 +1,23 @@
-import React, { FC, Fragment } from "react";
+import React, { FC, Fragment, useState } from "react";
 import Button from "@material-ui/core/Button";
 import xlsx from "xlsx";
+import dotenv from "dotenv";
 
 import { extractDataFromWorkBook, uploadDataToServer } from "../../helpers/upload";
+import { Participant } from "../../common/types";
 
 let workBook: xlsx.WorkBook; // backend take this
 const sheetNameHere = "Fake Data 1";
 
+dotenv.config();
+const uploadURL = process.env.REACT_APP_URL_UPLOAD_PAGE;
+const cacDmm = process.env.REACT_APP_API_KEY;
+const dmm = process.env.REACT_APP_NOT_SECRET_CODE;
+
 const UploadPage: FC = () => {
+  const [isAck, useAck] = useState<boolean>(false);
+  const [xlsxJSONData, useXlsxJSONData] = useState<Participant[]>([]);
+
   /** Upload + "extract" data from .xlsx file
    * - get FileList from `files` prop
    * - create a FileReader + assign a handler for onload to use when triggered
@@ -26,10 +36,7 @@ const UploadPage: FC = () => {
           // const data = new Uint8Array(progressEvt?.currentTarget?.result); CANT DO THIS
           const data = new Uint8Array(fileReader.result); // ArrayBuffer only
           workBook = xlsx.read(data, { type: "array" });
-          const fooxoalater = extractDataFromWorkBook(workBook, sheetNameHere);
-          console.log("very good shit", fooxoalater);
-
-          uploadDataToServer(fooxoalater);
+          useXlsxJSONData(extractDataFromWorkBook(workBook, sheetNameHere));
         }
       };
       fileReader.readAsArrayBuffer(excelFile); // trigger fileReader.onload
@@ -38,10 +45,16 @@ const UploadPage: FC = () => {
     }
   };
 
+  const submitDataToServerHdlr = (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    console.log("shit", uploadURL);
+    console.log("damnson", xlsxJSONData);
+    uploadDataToServer(xlsxJSONData);
+  };
+
   return (
     <Fragment>
-      <Button variant="contained" color="secondary">
-        Checking Material UI present
+      <Button onClick={submitDataToServerHdlr} variant="contained" color="secondary">
+        Submit Data to the Server
       </Button>
 
       <input type="file" onChange={extractDataFromInputEle} />
