@@ -10,7 +10,6 @@ let workBook: xlsx.WorkBook; // backend take this
 const sheetNameHere = "Fake Data 1";
 
 dotenv.config();
-const uploadURL = process.env.REACT_APP_URL_UPLOAD_PAGE;
 
 const UploadPage: FC = () => {
   // const [isAck, useAck] = useState<boolean>(false);
@@ -45,9 +44,7 @@ const UploadPage: FC = () => {
 
   // evt: React.MouseEvent<HTMLButtonElement, MouseEvent>
   const submitDataToServerHdlr = () => {
-    console.log("shit", uploadURL);
-    console.log("damnson", xlsxJSONData);
-    uploadDataToServer(xlsxJSONData);
+    uploadDataToServer(process.env.REACT_APP_URL_UPLOAD_PAGE, xlsxJSONData);
   };
 
   return (
@@ -55,7 +52,6 @@ const UploadPage: FC = () => {
       <Button onClick={submitDataToServerHdlr} variant="contained" color="secondary">
         Submit Data to the Server
       </Button>
-
       <input type="file" onChange={extractDataFromInputEle} />
     </Fragment>
   );

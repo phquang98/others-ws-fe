@@ -16,7 +16,7 @@ import PointEdit from "./components/Point/PointEdit";
 import PointCreate from "./components/Point/PointCreate";
 
 const App: FC = () => {
-  const dataProv = jsonServerProv("http://localhost:5000"); //
+  const dataProv = jsonServerProv("http://localhost:5000");
 
   return (
     <Admin layout={CustomLayout} customRoutes={customURLs} authProvider={firebaseAuthProvider} dataProvider={dataProv}>

@@ -24,5 +24,8 @@
 - [ ] disable `noImplicitAny` as cant find some types using this libs (e.g `props` from their UI)
 - [ ] may use ra-data-simple-rest to bootstrap Data Providers instead of writing manually
 
+## Diary
+
 - RA error response must return `{data: []}` is wrong, server must return like this `[...bunchOfObjHere]`
-- `basePath` prop in Delete Btn to go to what URL after DEL ACTION is completed
+- `basePath` prop in Delete Btn to go to what URL after DEL ACTION is completed -->
+- dont know how to use RA `FileInput`, too complicated without any examples

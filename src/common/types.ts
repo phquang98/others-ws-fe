@@ -24,3 +24,11 @@ export type Course_Participant = {
   exam?: number;
   final_grades?: number;
 };
+
+// any custom components under RA <DataGrid> can receive these props
+export type XDataGridProps<T> = {
+  basePath?: string;
+  id?: number;
+  record?: T;
+  resource?: string;
+};

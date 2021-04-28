@@ -10,7 +10,11 @@ const sheet2JsonOpts: Sheet2JSONOpts = {
 };
 
 dotenv.config();
-const uploadURL = process.env.REACT_APP_URL_UPLOAD_PAGE;
+
+const sheetNameHere = "Fake Data 1";
+let workBook: xlsx.WorkBook; // backend take this
+
+// const extractDataFromFileInput = () => {};
 
 const extractDataFromWorkBook = (workBook: WorkBook, sheetName: string): Participant[] => {
   const workSheet = workBook.Sheets[sheetName];
@@ -18,8 +22,7 @@ const extractDataFromWorkBook = (workBook: WorkBook, sheetName: string): Partici
   return dataDump; //
 };
 
-const uploadDataToServer = (dataFromWorkBook: any): void => {
-  console.log(uploadURL);
+const uploadDataToServer = (uploadURL: string | undefined, dataFromWorkBook: Participant[]): void => {
   if (uploadURL) {
     // generic here is the data from the server, aka what inside the res.status().json({...inHere})
     // const resFromServer =
@@ -32,8 +35,34 @@ const uploadDataToServer = (dataFromWorkBook: any): void => {
 
     //   });
   } else {
-    console.log("Can not read upload URL correctly.");
+    console.log("Can not read upload URL correctly or URL missing.");
   }
 };
 
-export { extractDataFromWorkBook, uploadDataToServer };
+/**
+ * Used by input element, will get access to the `files` prop, then read the file content
+ * @param evt Change event of the input element.
+ * @returns The data inside of the file accessed from the input element.
+ */
+const extractDataFromInputEle = (evt: React.ChangeEvent<HTMLInputElement>): Participant[] => {
+  let extractedData: Participant[] = [];
+  if (evt.currentTarget.files) {
+    const excelFile = evt.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onload = (): void => {
+      if (fileReader.result && typeof fileReader.result !== "string") {
+        // const data = new Uint8Array(progressEvt?.currentTarget?.result); CANT DO THIS
+        const data = new Uint8Array(fileReader.result); // ArrayBuffer only
+        workBook = xlsx.read(data, { type: "array" });
+        extractedData = extractDataFromWorkBook(workBook, sheetNameHere);
+      }
+    };
+    fileReader.readAsArrayBuffer(excelFile); // trigger fileReader.onload
+    return extractedData;
+  } else {
+    console.log("Something wrong with uploading the files!");
+    return extractedData;
+  }
+};
+
+export { extractDataFromWorkBook, uploadDataToServer, extractDataFromInputEle };

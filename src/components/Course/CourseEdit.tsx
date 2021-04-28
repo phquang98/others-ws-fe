@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Edit, SimpleForm, TextInput, DateInput } from "react-admin";
+import { Edit, SimpleForm, TextInput, DateInput, FileInput } from "react-admin";
 
 const CourseEdit: FC = (props) => {
   return (
