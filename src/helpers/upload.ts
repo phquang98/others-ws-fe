@@ -1,5 +1,5 @@
 import xlsx, { WorkBook, Sheet2JSONOpts } from "xlsx";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import dotenv from "dotenv";
 
 import { Participant } from "../common/types";
@@ -16,27 +16,46 @@ let workBook: xlsx.WorkBook; // backend take this
 
 // const extractDataFromFileInput = () => {};
 
-const extractDataFromWorkBook = (workBook: WorkBook, sheetName: string): Participant[] => {
-  const workSheet = workBook.Sheets[sheetName];
-  const dataDump: Participant[] = xlsx.utils.sheet_to_json(workSheet, sheet2JsonOpts);
-  return dataDump; //
+const extractDataFromWorkBook = (workBook: WorkBook, sheetName: string | undefined): Participant[] => {
+  let dataDump: Participant[] = [];
+  if (sheetName) {
+    const workSheet = workBook.Sheets[sheetName];
+    dataDump = xlsx.utils.sheet_to_json(workSheet, sheet2JsonOpts);
+    return dataDump;
+  } else {
+    return dataDump;
+  }
 };
 
-const uploadDataToServer = (uploadURL: string | undefined, dataFromWorkBook: Participant[]): void => {
+const uploadDataToServer = async (
+  uploadURL: string | undefined,
+  dataFromWorkBook: { xlsxData: Participant[]; registeringCourseId: string }
+): Promise<string> => {
+  let showText = "";
   if (uploadURL) {
     // generic here is the data from the server, aka what inside the res.status().json({...inHere})
     // const resFromServer =
-    axios.post<{ msg: string }>(uploadURL, dataFromWorkBook);
-
-    // axios
-    //   .post<{ msg: string }>(uploadURL, dataFromWorkBook)
-    //   .then()
-    //   .catch((serverErr) => {
-
-    //   });
-  } else {
-    console.log("Can not read upload URL correctly or URL missing.");
+    await axios.post<{ msg: string }>(uploadURL, dataFromWorkBook).catch((serverErr: AxiosError) => {
+      if (serverErr.response) {
+        console.log(serverErr.response.data);
+        console.log(serverErr.response.status);
+        console.log(serverErr.response.headers);
+        showText = "Duplicate!";
+        console.log("lozmm", showText);
+      } else {
+        showText = "Upload";
+      }
+    });
   }
+  return showText;
+
+  // return new Promise((resolve, reject) => {
+  //   if (showText !== "") {
+  //     resolve(showText);
+  //   } else {
+  //     reject();
+  //   }
+  // });
 };
 
 /**

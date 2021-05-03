@@ -23,7 +23,6 @@ const App: FC = () => {
       <Resource name="participant" list={PartList} create={PartCreate} edit={PartEdit} />
       <Resource name="course" list={CourseList} create={CourseCreate} edit={CourseEdit} />
       <Resource name="course_participant" list={PointList} create={PointCreate} edit={PointEdit} />
-      {}
     </Admin>
   );
 };

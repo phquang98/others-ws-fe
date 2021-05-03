@@ -8,7 +8,6 @@ const ParticipantCreate: FC = (props) => {
         <TextInput isRequired={true} source="id" />
         <TextInput source="first_name" />
         <TextInput source="last_name" />
-        <TextInput isRequired={true} source="participant_id" />
         <DateInput source="dob" />
         <TextInput source="email" />
       </SimpleForm>

@@ -8,7 +8,6 @@ const ParticipantEdit: FC = (props) => {
         <TextInput disabled source="id" />
         <TextInput source="first_name" />
         <TextInput source="last_name" />
-        <TextInput disabled source="participant_id" />
         <DateInput source="dob" />
         <TextInput source="email" />
       </SimpleForm>

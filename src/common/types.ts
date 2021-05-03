@@ -1,5 +1,5 @@
 export type Participant = {
-  id?: number;
+  id: string;
   first_name: string;
   last_name: string;
   participant_id: string;
@@ -8,11 +8,8 @@ export type Participant = {
 };
 
 export type Course = {
-  course_id: string;
+  id: string;
   course_title: string;
-  course_description?: string;
-  date_started: string;
-  date_ended: string;
 };
 
 export type Course_Participant = {

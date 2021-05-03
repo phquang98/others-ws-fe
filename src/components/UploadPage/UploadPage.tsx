@@ -43,13 +43,13 @@ const UploadPage: FC = () => {
   };
 
   // evt: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  const submitDataToServerHdlr = () => {
-    uploadDataToServer(process.env.REACT_APP_URL_UPLOAD_PAGE, xlsxJSONData);
-  };
+  // const submitDataToServerHdlr = () => {
+  //   uploadDataToServer(process.env.REACT_APP_URL_UPLOAD_PAGE, xlsxJSONData);
+  // };
 
   return (
     <Fragment>
-      <Button onClick={submitDataToServerHdlr} variant="contained" color="secondary">
+      <Button variant="contained" color="secondary">
         Submit Data to the Server
       </Button>
       <input type="file" onChange={extractDataFromInputEle} />
