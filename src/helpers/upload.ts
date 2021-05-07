@@ -47,15 +47,15 @@ const uploadDataToServer = async (
       }
     });
   }
-  return showText;
+  // return showText;
 
-  // return new Promise((resolve, reject) => {
-  //   if (showText !== "") {
-  //     resolve(showText);
-  //   } else {
-  //     reject();
-  //   }
-  // });
+  return new Promise((resolve, reject) => {
+    if (showText !== "") {
+      resolve(showText);
+    } else {
+      reject();
+    }
+  });
 };
 
 /**

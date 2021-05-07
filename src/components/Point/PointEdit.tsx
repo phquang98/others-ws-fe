@@ -8,9 +8,9 @@ const PointEdit: FC = (props) => {
         <TextInput disabled source="id" />
         <TextInput disabled source="course_id" />
         <TextInput disabled source="participant_id" />
-        <TextInput source="assignment1" />
-        <TextInput source="assignment2" />
-        <TextInput source="assignment3" />
+        <TextInput source="assignment_1" />
+        <TextInput source="assignment_2" />
+        <TextInput source="assignment_3" />
         <TextInput source="exam" />
       </SimpleForm>
     </Edit>

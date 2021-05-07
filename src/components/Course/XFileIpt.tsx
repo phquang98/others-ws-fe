@@ -42,7 +42,7 @@ const XFileIpt: FC<XDataGridProps<Course>> = (props) => {
     <Fragment>
       <input type="file" onChange={extractDataFromInputEle} />
       {/* {console.log(props.record)} */}
-      <button onClick={btnClickHdlr}>{showText}</button>
+      <button onClick={btnClickHdlr}>{showText ?? "Upload"}</button>
     </Fragment>
   );
 };
