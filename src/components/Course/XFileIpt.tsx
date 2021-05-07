@@ -36,6 +36,8 @@ const XFileIpt: FC<XDataGridProps<Course>> = (props) => {
     setShowText(await uploadDataToServer(process.env.REACT_APP_URL_UPLOAD_PAGE, addedCourseId));
   };
 
+  console.log("btn ten", showText);
+
   return (
     <Fragment>
       <input type="file" onChange={extractDataFromInputEle} />

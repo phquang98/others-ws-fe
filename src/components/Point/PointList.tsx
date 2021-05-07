@@ -14,7 +14,7 @@ const PointList: FC = (props) => {
         <NumberField source="assignment_2" />
         <NumberField source="assignment_3" />
         <NumberField source="exam" />
-        <NumberField source="final_grades" />
+        <NumberField source="grade" />
         <EditButton />
         <DeleteButton basePath="/course_participant" />
       </Datagrid>
