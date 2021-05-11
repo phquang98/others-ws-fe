@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { List, Datagrid, TextField, EditButton, DeleteButton } from "react-admin";
+import { List, Datagrid, TextField, DateField, EditButton, DeleteButton } from "react-admin";
 
 import CourseSearch from "./CourseSearch";
 import XFileIpt from "./XFileIpt";
@@ -10,6 +10,8 @@ const CourseList: FC = (props) => {
       <Datagrid>
         <TextField source="id" />
         <TextField source="course_title" />
+        <DateField source="date_started" />
+        <DateField source="date_ended" />
         <XFileIpt />
         <EditButton />
         <DeleteButton basePath="/course" />

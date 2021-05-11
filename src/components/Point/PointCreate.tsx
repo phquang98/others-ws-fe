@@ -5,12 +5,11 @@ const PointCreate: FC = (props) => {
   return (
     <Create title="Logging points of a participant..." {...props}>
       <SimpleForm>
-        <TextInput isRequired={true} source="id" />
         <TextInput isRequired={true} source="course_id" />
         <TextInput isRequired={true} source="participant_id" />
-        <TextInput source="assignment1" />
-        <TextInput source="assignment2" />
-        <TextInput source="assignment3" />
+        <TextInput source="assignment_1" />
+        <TextInput source="assignment_2" />
+        <TextInput source="assignment_3" />
         <TextInput source="exam" />
         <TextInput disabled source="final_grades" />
       </SimpleForm>

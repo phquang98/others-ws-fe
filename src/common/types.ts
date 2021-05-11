@@ -10,6 +10,13 @@ export type Participant = {
 export type Course = {
   id: string;
   course_title: string;
+  date_started: string;
+  date_ended: string;
+  grade1_interval?: string;
+  grade2_interval?: string;
+  grade3_interval?: string;
+  grade4_interval?: string;
+  grade5_interval?: string;
 };
 
 export type Course_Participant = {
