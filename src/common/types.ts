@@ -12,6 +12,8 @@ export type Course = {
   course_title: string;
   date_started: string;
   date_ended: string;
+  used_assignments: number;
+  max_assignment_point: number;
   grade1_interval?: string;
   grade2_interval?: string;
   grade3_interval?: string;
@@ -25,6 +27,13 @@ export type Course_Participant = {
   assignment1?: number;
   assignment2?: number;
   assignment3?: number;
+  assignment4?: number;
+  assignment5?: number;
+  assignment6?: number;
+  assignment7?: number;
+  assignment8?: number;
+  assignment9?: number;
+  assignment10?: number;
   exam?: number;
   final_grades?: number;
 };

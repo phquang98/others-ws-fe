@@ -10,9 +10,9 @@ const PointList: FC = (props) => {
         <TextField source="id" />
         <TextField source="course_id" />
         <TextField source="participant_id" />
-        <NumberField source="assignment_1" />
-        <NumberField source="assignment_2" />
-        <NumberField source="assignment_3" />
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((ele) => {
+          return <NumberField key={ele} label={`Asgmt ${ele}`} source={`assignment_${ele}`} />;
+        })}
         <NumberField source="exam" />
         <NumberField source="grade" />
         <EditButton />

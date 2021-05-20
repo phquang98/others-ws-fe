@@ -9,11 +9,13 @@ const CourseCreate: FC = (props) => {
         <TextInput source="course_title" />
         <DateInput isRequired={true} source="date_started" />
         <DateInput isRequired={true} source="date_ended" />
-        <TextInput isRequired={true} source="grade1_interval" />
-        <TextInput isRequired={true} source="grade2_interval" />
-        <TextInput isRequired={true} source="grade3_interval" />
-        <TextInput isRequired={true} source="grade4_interval" />
-        <TextInput isRequired={true} source="grade5_interval" />
+        <TextInput isRequired={true} helperText="0-10" source="used_assignments" />
+        <TextInput isRequired={true} helperText="0-100" source="max_assignment_point" />
+        <TextInput isRequired={true} label="Grade 1 Upper Limit" source="grade1_interval" />
+        <TextInput isRequired={true} label="Grade 2 Upper Limit" source="grade2_interval" />
+        <TextInput isRequired={true} label="Grade 3 Upper Limit" source="grade3_interval" />
+        <TextInput isRequired={true} label="Grade 4 Upper Limit" source="grade4_interval" />
+        <TextInput isRequired={true} label="Grade 5 Upper Limit" source="grade5_interval" />
       </SimpleForm>
     </Create>
   );

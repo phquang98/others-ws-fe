@@ -8,10 +8,16 @@ const PointEdit: FC = (props) => {
         <TextInput disabled source="id" />
         <TextInput disabled source="course_id" />
         <TextInput disabled source="participant_id" />
-        <TextInput source="assignment_1" />
-        <TextInput source="assignment_2" />
-        <TextInput source="assignment_3" />
-        <TextInput source="exam" />
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((ele) => {
+          return (
+            <TextInput
+              key={ele}
+              helperText="App ignore based on course used assignments."
+              source={`assignment_${ele}`}
+            />
+          );
+        })}
+        <TextInput helperText="0-100" source="exam" />
       </SimpleForm>
     </Edit>
   );

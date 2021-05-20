@@ -9,6 +9,8 @@ const CourseEdit: FC = (props) => {
         <TextInput source="course_title" />
         <DateInput source="date_started" />
         <DateInput source="date_ended" />
+        <TextInput disabled source="used_assignments" />
+        <TextInput disabled source="max_assignment_point" />
         <TextInput source="grade1_interval" />
         <TextInput source="grade2_interval" />
         <TextInput source="grade3_interval" />
