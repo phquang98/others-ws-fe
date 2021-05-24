@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import xlsx from "xlsx";
 import dotenv from "dotenv";
 
-import { extractDataFromWorkBook, uploadDataToServer } from "../../helpers/upload";
+import { extractDataFromWorkBook } from "../../helpers/upload";
 import { Participant } from "../../common/types";
 
 let workBook: xlsx.WorkBook; // backend take this

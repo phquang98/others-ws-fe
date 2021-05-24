@@ -11,11 +11,11 @@ const CourseEdit: FC = (props) => {
         <DateInput source="date_ended" />
         <TextInput disabled source="used_assignments" />
         <TextInput disabled source="max_assignment_point" />
-        <TextInput source="grade1_interval" />
-        <TextInput source="grade2_interval" />
-        <TextInput source="grade3_interval" />
-        <TextInput source="grade4_interval" />
-        <TextInput source="grade5_interval" />
+        <TextInput disabled source="grade1_interval" />
+        <TextInput disabled source="grade2_interval" />
+        <TextInput disabled source="grade3_interval" />
+        <TextInput disabled source="grade4_interval" />
+        <TextInput disabled source="grade5_interval" />
       </SimpleForm>
     </Edit>
   );

@@ -24,6 +24,12 @@ export type Course = {
 export type Course_Participant = {
   course_id: string;
   participant_id: string;
+  grade?: number;
+  total?: number;
+  exam_point?: number;
+  exam?: number;
+  assignment_point?: number;
+  final_grades?: number;
   assignment1?: number;
   assignment2?: number;
   assignment3?: number;
@@ -34,8 +40,6 @@ export type Course_Participant = {
   assignment8?: number;
   assignment9?: number;
   assignment10?: number;
-  exam?: number;
-  final_grades?: number;
 };
 
 // any custom components under RA <DataGrid> can receive these props

@@ -11,13 +11,13 @@ const PointCreate: FC = (props) => {
           return (
             <TextInput
               key={ele}
+              isRequired={true}
               helperText="App ignore based on course used assignments."
               source={`assignment_${ele}`}
             />
           );
         })}
-        <TextInput helperText="0-100" source="exam" />
-        <TextInput disabled source="final_grades" />
+        <TextInput isRequired={true} helperText="0-100" source="exam" />
       </SimpleForm>
     </Create>
   );
