@@ -11,3 +11,5 @@ Front End Part
 - open a console to where you put this application -> `npm i`
 - run the server first
 - after the server ran, from the console: `npm start`
+- you can login to the app using this credentials
+  - username: test123@gmail.com, pass: 123456
